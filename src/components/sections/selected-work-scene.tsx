@@ -60,6 +60,7 @@ export function SelectedWorkScene() {
 
   return (
     <section
+      id="scene-2-selected-work"
       ref={containerRef}
       className="relative w-full py-20 lg:py-32 bg-[var(--color-bg)] border-b border-[var(--color-border-subtle)] overflow-hidden"
       aria-labelledby="scene-2-heading"

@@ -44,7 +44,7 @@ export function ClosingCta() {
           </div>
 
           <div className="flex items-center gap-3 text-[#F4E3D7]/70 text-[11px] uppercase tracking-wider">
-            <span>PUNE, IN (18.5204° N, 73.8567° E)</span>
+            <span>NASHIK, MAHARASHTRA, INDIA</span>
             <span>·</span>
             <span className="text-[var(--color-accent-2)] font-semibold">DIRECT FOUNDER REVIEW</span>
           </div>
@@ -139,7 +139,7 @@ export function ClosingCta() {
               <div className="space-y-1.5 pt-3 border-t border-[rgba(244,227,215,0.12)] font-mono text-xs text-[#F4E3D7]/75">
                 <div className="flex items-center gap-2 text-[#F4E3D7]">
                   <MapPin className="w-3.5 h-3.5 text-[var(--color-accent-3)] shrink-0" aria-hidden="true" />
-                  <span>Pune, Maharashtra, India</span>
+                  <span>Nashik, Maharashtra, India</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#F4E3D7]/60 text-[11px]">
                   <Clock className="w-3.5 h-3.5 text-[#F4E3D7]/40 shrink-0" aria-hidden="true" />

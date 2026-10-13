@@ -14,6 +14,7 @@ export function ConceptStudyScene() {
 
   return (
     <section
+      id="dunowen-house"
       className="relative w-full py-20 lg:py-28 bg-[rgba(44,29,39,0.03)] border-b border-[var(--color-border-subtle)]"
       aria-labelledby="scene-3-heading"
     >

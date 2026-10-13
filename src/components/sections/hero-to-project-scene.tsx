@@ -217,7 +217,7 @@ export function HeroToProjectScene() {
               </span>
               <span>·</span>
               <span className="uppercase tracking-widest text-[11px]">
-                EST. 2024 · PUNE, IN (18.5204° N, 73.8567° E)
+                EST. 2024 · NASHIK, MAHARASHTRA, INDIA
               </span>
             </div>
 
