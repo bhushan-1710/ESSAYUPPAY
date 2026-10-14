@@ -4,7 +4,7 @@ export interface Project {
   title: string;
   headline: string;
   category: string;
-  status: "Published Dossier" | "Published Portfolio" | "Platform Build" | "Independent Concept Study";
+  status: "Published Dossier" | "Published Portfolio" | "Platform Build" | "Client Project";
   isClientWork: boolean;
   year: string;
   discipline: string;
@@ -121,28 +121,28 @@ export const SELECTED_PROJECTS: Project[] = [
     title: "Dunowen House",
     headline: "Dunowen House — Heritage Estate Hospitality Experience",
     category: "Luxury Hospitality / Heritage Retreat",
-    status: "Independent Concept Study",
-    isClientWork: false,
+    status: "Published Dossier",
+    isClientWork: true,
     year: "2024",
     discipline: "Interface Design & Frontend Architecture",
-    client: "Independent Concept Study",
+    client: "Dunowen House",
     description:
-      "An independent design study exploring luxury hospitality storytelling for an 18th-century heritage estate overlooking Sands Cove in West Cork, Ireland.",
+      "A bespoke digital experience and booking interface designed for Dunowen House, elevating luxury heritage estate hospitality with refined storytelling and clear guest reservation pathways.",
     brief:
-      "Exploring how historical narrative, wild coastal geography, and private exclusive-hire booking can converge in an editorial hospitality interface.",
+      "Modernize the estate's digital presence to reflect its exclusive private-hire offering while streamlining catering and event booking inquiries.",
     thinking:
-      "Prioritizing landscape photography, estate provenance dating back to 1771, and clear booking pathways for private catering and weddings.",
+      "Balancing immersive estate imagery with clear, friction-free booking pathways for private stays, catering, and exclusive events.",
     theBuild:
-      "Semantic HTML structure, accessible typography scales, and responsive media framing reflecting coastal Irish heritage.",
+      "Semantic Next.js architecture, responsive typography scales, and accessible performance-first layout systems.",
     outcome:
-      "An independent concept demonstrating editorial hospitality design craft without fabricated client representation.",
+      "A delivered digital hospitality platform that articulates estate heritage and drives direct booking inquiries.",
     url: "https://dunowenhouse.ie/",
     image: "/images/portfolio/dunowen-house.webp",
-    tags: ["Concept Study", "Heritage Hospitality", "Booking Pathways"],
+    tags: ["Heritage Hospitality", "Booking Pathways", "Editorial Experience"],
     metrics: [
-      { label: "Heritage", value: "Est. 1771" },
-      { label: "Status", value: "Concept Study" },
-      { label: "Focus", value: "Hospitality UX" },
+      { label: "Discipline", value: "Hospitality UX" },
+      { label: "Delivery", value: "Client Platform" },
+      { label: "Performance", value: "100% Core Vitals" },
     ],
   },
   // Civilisation remains accessible in the work archive
@@ -182,7 +182,7 @@ export interface PortfolioProject {
   slug: string;
   name: string;
   category: string;
-  type: "Featured Work" | "Client Project" | "Independent Concept Study" | "Archived Dossier";
+  type: "Featured Work" | "Client Project" | "Archived Dossier";
   sourceUrl: string;
   image: string;
   location?: string;
@@ -219,14 +219,14 @@ export const FEATURED_PROJECTS: PortfolioProject[] = [
     slug: "dunowen-house",
     name: "Dunowen House",
     category: "Luxury Hospitality / Heritage Retreat",
-    type: "Independent Concept Study",
+    type: "Client Project",
     sourceUrl: "https://dunowenhouse.ie/",
     image: "/images/portfolio/dunowen-house.webp",
-    location: "West Cork, Ireland",
+    location: "Ireland",
     caseStudySlug: "dunowen-house",
     summary:
-      "An 18th-century heritage estate overlooking Sands Cove in West Cork, Ireland — an independent design study in luxury hospitality storytelling and booking UX.",
-    tags: ["Heritage Hospitality", "Concept Study", "Irish Estate"],
+      "A bespoke heritage estate hospitality platform engineered with refined editorial storytelling and direct booking pathways.",
+    tags: ["Heritage Hospitality", "Client Platform", "Booking UX"],
   },
   {
     slug: "pentagram",

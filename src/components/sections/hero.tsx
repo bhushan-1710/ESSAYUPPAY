@@ -77,35 +77,19 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Tactile Editorial Artwork Still Life (Cols 8-12) */}
+          {/* Right Column: Tactile Editorial Artwork (Cols 8-12) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <div className="relative rounded-[2px] overflow-hidden border border-[var(--color-border)] bg-[var(--color-text)] shadow-md group">
               <div className="aspect-[4/3] w-full relative">
                 <Image
-                  src="/images/hero-still-life.jpg"
-                  alt="Tactile studio still-life composition: folded peach paper, vermilion geometric form, and mineral green accent in hard directional studio light"
+                  src="/images/hero-digital-craft.jpg"
+                  alt="Digital craft and spatial systems editorial website design layout"
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 40vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                 />
               </div>
-
-              {/* Artwork Metadata Label */}
-              <div className="p-3.5 bg-[var(--color-bg)] border-t border-[var(--color-border)] flex items-center justify-between font-mono text-[11px] text-[var(--color-text-muted)]">
-                <span className="uppercase tracking-wider">
-                  STUDIO STILL LIFE · COMP. 01
-                </span>
-                <span className="text-[var(--color-accent)] font-medium">
-                  #F4E3D7 / #B72F27
-                </span>
-              </div>
-            </div>
-
-            {/* Asymmetric Counterpoint Pill */}
-            <div className="hidden sm:flex absolute -bottom-5 -left-4 bg-[var(--color-accent-3)] text-[var(--color-text)] border border-[rgba(44,29,39,0.2)] px-3.5 py-1.5 rounded-[2px] font-mono text-xs font-medium uppercase tracking-wider shadow-sm items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
-              <span>Digital Cinema &amp; Playful Precision</span>
             </div>
           </div>
         </div>

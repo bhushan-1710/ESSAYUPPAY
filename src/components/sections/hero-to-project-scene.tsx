@@ -141,9 +141,9 @@ export function HeroToProjectScene() {
             0.25
           );
 
-          // The layered paper elements and hero ticket strip tuck in cleanly
+          // The offset paper backplane tucks in cleanly
           morphTl.to(
-            [".hero-paper-layer", ".hero-ticket-strip"],
+            ".hero-paper-layer",
             {
               opacity: 0,
               scale: 0.96,
@@ -320,40 +320,21 @@ export function HeroToProjectScene() {
 
                 {/* Tactile Layer 2: Geometric Registration Sheet in Peach Paper */}
                 <div className="relative bg-[var(--color-bg)] border border-[var(--color-border)] rounded-[2px] p-2 shadow-2xl">
-                  {/* Architectural Crosshair Corners */}
-                  <div className="hero-paper-layer absolute top-1 left-1.5 font-mono text-[9px] text-[var(--color-text-muted)] select-none">
-                    +
-                  </div>
-                  <div className="hero-paper-layer absolute top-1 right-1.5 font-mono text-[9px] text-[var(--color-text-muted)] select-none">
-                    +
-                  </div>
-
-                  {/* Mineral Mint Geometric Registration Tab */}
-                  <div
-                    className="hero-paper-layer absolute -top-1.5 right-6 bg-[var(--color-accent-2)] text-[var(--color-text)] font-mono text-[9px] font-semibold px-2 py-0.5 rounded-[1px] shadow-xs"
-                    aria-hidden="true"
-                  >
-                    TAB 01 · 50MM
-                  </div>
-
                   {/* Dual Photographic Core (Aspect 5:4) - 100% Opaque Wipe */}
                   <div className="aspect-[5/4] xl:aspect-[4/3] w-full relative rounded-[1px] overflow-hidden bg-[var(--color-text)] border border-[rgba(118,99,109,0.3)]">
-                    {/* Visual 1: Studio Still Life (Prompt A) */}
+                    {/* Visual 1: Hero Art Direction Visual */}
                     <div
                       ref={heroImageLayerRef}
                       className="absolute inset-0 w-full h-full"
                     >
                       <Image
-                        src="/images/hero-still-life.jpg"
-                        alt="Tactile studio still life: folded peach paper, vermilion geometric form, and mineral green accent in hard directional studio light"
+                        src="/images/hero-digital-craft.jpg"
+                        alt="Digital craft and spatial systems editorial website design layout"
                         fill
                         priority
                         sizes="(max-width: 1440px) 45vw, 600px"
                         className="object-cover"
                       />
-                      <div className="absolute bottom-2.5 right-2.5 bg-[var(--color-text)]/90 text-white px-2 py-0.5 rounded-[1px] font-mono text-[10px] tracking-wider uppercase">
-                        COMP. 01 · STILL LIFE
-                      </div>
                     </div>
 
                     {/* Visual 2: Studio Tilt Project (Unmasked via Clip-Path Wipe) */}
@@ -374,22 +355,6 @@ export function HeroToProjectScene() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Dossier Ticket Strip */}
-                  <div className="hero-ticket-strip mt-2 px-1 py-1.5 border-t border-[var(--color-border-subtle)] flex items-center justify-between font-mono text-[10px] text-[var(--color-text-muted)] will-change-transform">
-                    <span className="uppercase tracking-wider font-medium text-[var(--color-text)]">
-                      FIG. 01 / CODED CRAFT
-                    </span>
-                    <span className="text-[var(--color-accent)] font-semibold">
-                      #F4E3D7 · #B72F27
-                    </span>
-                  </div>
-                </div>
-
-                {/* Tactile Layer 3: Tactile Citron Specimen Overlap Tag */}
-                <div className="hero-paper-layer absolute -bottom-3 -left-3 bg-[var(--color-accent-3)] text-[var(--color-text)] border border-[rgba(44,29,39,0.3)] px-3 py-1.5 rounded-[2px] font-mono text-[11px] font-semibold uppercase tracking-wider shadow-md flex items-center gap-2 will-change-transform">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
-                  <span>Playful Precision &amp; Digital Cinema</span>
                 </div>
               </div>
             </div>
@@ -550,17 +515,13 @@ export function HeroToProjectScene() {
           <div className="relative bg-[var(--color-bg)] border border-[var(--color-border)] rounded-[2px] p-2 shadow-md">
             <div className="aspect-[4/3] w-full relative rounded-[1px] overflow-hidden bg-[var(--color-text)]">
               <Image
-                src="/images/hero-still-life.jpg"
-                alt="Tactile studio still life"
+                src="/images/hero-digital-craft.jpg"
+                alt="Digital craft and spatial systems editorial website design layout"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 600px"
                 className="object-cover"
               />
-            </div>
-            <div className="p-2 border-t border-[var(--color-border-subtle)] font-mono text-[10px] text-[var(--color-text-muted)] flex justify-between">
-              <span className="uppercase font-medium text-[var(--color-text)]">COMP. 01 · STILL LIFE</span>
-              <span className="text-[var(--color-accent)] font-semibold">#F4E3D7 / #B72F27</span>
             </div>
           </div>
         </div>

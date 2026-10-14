@@ -13,7 +13,7 @@ export default function Home() {
       {/* 02 / Asymmetric Selected Work Parallax Exhibition (Pentagram & X+O) */}
       <SelectedWorkScene />
 
-      {/* 03 / Archival Monograph Showcase: Dunowen House Independent Concept */}
+      {/* 03 / Archival Monograph Showcase: Dunowen House Client Commission */}
       <ConceptStudyScene />
 
       {/* 04 / Typographic Capabilities Editorial Sequence */}

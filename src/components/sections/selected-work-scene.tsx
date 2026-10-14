@@ -126,11 +126,6 @@ export function SelectedWorkScene() {
                   <div className="absolute top-4 left-4">
                     <Badge variant="default">{pentagram.type}</Badge>
                   </div>
-
-                  {/* Corner Tag */}
-                  <div className="absolute bottom-3 right-3 bg-[var(--color-text)]/90 text-white px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase backdrop-blur-xs">
-                    FIG. 02 · IDENTITY &amp; DESIGN
-                  </div>
                 </div>
 
                 {/* Metadata Bar */}

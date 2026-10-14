@@ -148,7 +148,7 @@ export function SelectedWork() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   <div className="lg:col-span-8 space-y-2">
                     <div className="flex flex-wrap items-center gap-3">
-                      <Badge variant="citron">{dunowen.status}</Badge>
+                      <Badge variant="mint">{dunowen.status}</Badge>
                       <span className="font-mono text-xs uppercase tracking-wider text-[var(--color-text-muted)]">
                         {dunowen.discipline} · {dunowen.year}
                       </span>
@@ -165,7 +165,7 @@ export function SelectedWork() {
 
                   <div className="lg:col-span-4 flex lg:justify-end">
                     <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] group-hover:underline font-medium">
-                      <span>Inspect concept brief</span>
+                      <span>Read complete dossier</span>
                       <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
                     </span>
                   </div>

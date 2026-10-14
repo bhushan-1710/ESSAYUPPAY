@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Compass } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SELECTED_PROJECTS } from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 
@@ -23,15 +23,15 @@ export function ConceptStudyScene() {
         <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[var(--color-border-subtle)] font-mono text-xs">
           <div className="flex items-center gap-3 text-[var(--color-text-muted)]">
             <span className="text-[var(--color-accent)] font-semibold uppercase tracking-wider">
-              INDEPENDENT STUDY · ARCHIVE
+              CLIENT COMMISSION · HOSPITALITY
             </span>
             <span>·</span>
             <span className="uppercase tracking-widest text-[11px]">
-              EST. 1771 · SANDS COVE, WEST CORK (51.5833° N, 8.9167° W)
+              {dunowen.category}
             </span>
           </div>
 
-          <Badge variant="citron">{dunowen.status}</Badge>
+          <Badge variant="mint">{dunowen.status}</Badge>
         </div>
 
         {/* Archival Layout Grid: Asymmetric Monograph Showcase */}
@@ -39,13 +39,6 @@ export function ConceptStudyScene() {
           {/* Left Column: Heritage Editorial Monograph Narrative (Cols 1-6) */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-[2px] bg-[var(--color-accent-3)]/60 border border-[rgba(44,29,39,0.2)] font-mono text-[11px] text-[var(--color-text)]">
-                <Compass className="w-3.5 h-3.5 text-[var(--color-accent)]" />
-                <span className="uppercase font-semibold tracking-wider">
-                  SELF-INITIATED CONCEPT STUDY · NO CLIENT AFFILIATION
-                </span>
-              </div>
-
               <h2
                 id="scene-3-heading"
                 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.04em] text-[var(--color-text)] leading-[1.04]"
@@ -61,15 +54,6 @@ export function ConceptStudyScene() {
             <p className="font-sans text-base text-[var(--color-text-muted)] leading-relaxed">
               {dunowen.description}
             </p>
-
-            <div className="p-4 rounded-[2px] border border-[var(--color-border-subtle)] bg-[var(--color-bg)] space-y-2">
-              <span className="font-mono text-[11px] uppercase tracking-wider font-semibold text-[var(--color-text)] block">
-                EDITORIAL INTENT &amp; HYPOTHESIS
-              </span>
-              <p className="font-sans text-xs text-[var(--color-text-muted)] leading-relaxed">
-                Exploring how historical provenance, wild coastal geography, and private exclusive-hire booking converge in an editorial hospitality interface without fabricated client claims.
-              </p>
-            </div>
 
             {/* Evidence-Backed Scope / Specs */}
             <div className="grid grid-cols-3 gap-3 pt-2 font-mono text-xs">
@@ -90,7 +74,7 @@ export function ConceptStudyScene() {
                 href={`/work/${dunowen.slug}`}
                 className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-2 group focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
               >
-                <span>Inspect architectural concept dossier</span>
+                <span>Read complete dossier</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
               {dunowen.url && (
@@ -116,26 +100,21 @@ export function ConceptStudyScene() {
               <Link
                 href={`/work/${dunowen.slug}`}
                 className="block relative aspect-[16/10] sm:aspect-[4/3] w-full rounded-[1px] overflow-hidden bg-[var(--color-text)] border border-[rgba(118,99,109,0.3)] focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-                aria-label={`Inspect ${dunowen.title} concept`}
+                aria-label={`Inspect ${dunowen.title} case study`}
               >
                 <Image
                   src={dunowen.image}
-                  alt="Dunowen House concept study editorial still life"
+                  alt="Dunowen House luxury estate hospitality website preview"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
-
-                {/* Archival Specimen Stamp */}
-                <div className="absolute top-3 right-3 bg-[var(--color-bg)]/95 text-[var(--color-text)] border border-[var(--color-border)] px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase shadow-xs">
-                  PROVENANCE · 1771
-                </div>
               </Link>
 
               {/* Passe-Partout Bottom Ticket Bar */}
               <div className="mt-3 px-1 pt-2 border-t border-[var(--color-border-subtle)] flex items-center justify-between font-mono text-[11px] text-[var(--color-text-muted)]">
                 <span className="uppercase font-medium text-[var(--color-text)]">
-                  DUNOWEN ESTATE · WEST CORK
+                  DUNOWEN HOUSE · LUXURY RETREAT
                 </span>
                 <div className="flex items-center gap-4">
                   <Link

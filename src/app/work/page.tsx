@@ -22,8 +22,6 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
     switch (type) {
       case "Featured Work":
         return "default";
-      case "Independent Concept Study":
-        return "citron";
       case "Client Project":
         return "mint";
       case "Archived Dossier":
