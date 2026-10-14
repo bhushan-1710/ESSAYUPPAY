@@ -20,32 +20,34 @@ export interface Project {
   metrics: { label: string; value: string }[];
 }
 
+// Studio Tilt is the first project encountered after the hero transition.
+// It is a client project: ESSYUPPAY.AI designed and engineered Studio Tilt's website.
 export const FEATURED_PROJECT: Project = {
-  slug: "civilisation",
+  slug: "studio-tilt",
   number: "01",
-  title: "Civilisation",
-  headline: "Civilisation — Property & Development Advisory Dossier",
-  category: "Property / Advisory",
-  status: "Published Dossier",
+  title: "Studio Tilt",
+  headline: "Studio Tilt — Architecture, Interiors & Landscape Studio",
+  category: "Architecture & Interior Design",
+  status: "Published Portfolio",
   isClientWork: true,
   year: "2024",
   discipline: "Design & Frontend Engineering",
-  client: "Civilisation Advisory Group",
+  client: "Studio Tilt",
   description:
-    "A high-end property and development advisory experience structured as an editorial dossier, with complex information architecture spanning track record, capabilities, and studio philosophy.",
+    "A studio presence for a Goa-based architecture and interior practice known for tropical modernism, contextual material palettes, and lush residential environments. The site communicates the practice's distinct architectural character through bold typography and immersive photography.",
   brief:
-    "Civilisation required an authoritative digital presence that moved beyond commercial real-estate tropes, positioning their development advisory team alongside institutional partners and discerning private clients.",
+    "Studio Tilt needed a digital home that matched their tropical-modernist sensibility — restrained, contextual, and visually confident.",
   thinking:
-    "We established an austere editorial grid with deep aubergine ink, tactile beige surfaces, and precise typography. Rather than generic feature lists, the experience unfolds as a curated intelligence dossier with structured reading states.",
+    "The interface was built around the studio's photography. A half-and-half composition — logotype left, lush tropical imagery right — immediately communicates the practice's dual commitment to architectural rigour and natural context.",
   theBuild:
-    "Engineered with semantic HTML5, zero-layout-shift responsive typography, accessible keyboard navigation, and high-efficiency CSS layouts optimized for instant loading on mobile and desktop.",
+    "Engineered with semantic HTML5, responsive typography, accessible navigation, and high-efficiency CSS layouts optimised for portfolio showcase across devices.",
   outcome:
-    "An institutional-grade digital dossier that communicates high-value advisory capability with restraint and editorial authority.",
-  url: "https://civilisationn.netlify.app/",
-  image: "/images/editorial-transition.jpg",
-  tags: ["Advisory Dossier", "Editorial Grid", "Information Architecture"],
+    "A confident, atmosphere-driven studio presence that positions Studio Tilt alongside the best international architecture practices.",
+  url: "https://www.studiotilt.in/",
+  image: "/images/portfolio/studio-tilt.webp",
+  tags: ["Tropical Modernism", "Studio Identity", "Architecture Portfolio"],
   metrics: [
-    { label: "Format", value: "Editorial Dossier" },
+    { label: "Location", value: "Goa, India" },
     { label: "Delivery", value: "Production Web" },
     { label: "Scope", value: "Identity & Engineering" },
   ],
@@ -75,7 +77,7 @@ export const SELECTED_PROJECTS: Project[] = [
     outcome:
       "A focused studio identity and digital showcase that establishes immediate credibility for high-end spatial projects.",
     url: "https://perspect-hues.netlify.app/",
-    image: "/images/graphic-interstitial.jpg",
+    image: "/images/portfolio/perspect-hues.webp",
     tags: ["Spatial Design", "Materiality Swatches", "Studio Identity"],
     metrics: [
       { label: "Theme", value: "Material Truth" },
@@ -105,7 +107,7 @@ export const SELECTED_PROJECTS: Project[] = [
     outcome:
       "A functional web platform combining visual desirability with practical, interactive commercial calculation tools.",
     url: "https://zeris-real-estate.netlify.app/",
-    image: "/images/hero-still-life.jpg",
+    image: "/images/portfolio/zeris-real-estate.webp",
     tags: ["Property Platform", "Yield Calculator", "Interactive Tooling"],
     metrics: [
       { label: "Platform", value: "Discovery Engine" },
@@ -135,12 +137,206 @@ export const SELECTED_PROJECTS: Project[] = [
     outcome:
       "An independent concept demonstrating editorial hospitality design craft without fabricated client representation.",
     url: "https://dunowenhouse.ie/",
-    image: "/images/dunowen-estate.jpg",
+    image: "/images/portfolio/dunowen-house.webp",
     tags: ["Concept Study", "Heritage Hospitality", "Booking Pathways"],
     metrics: [
       { label: "Heritage", value: "Est. 1771" },
       { label: "Status", value: "Concept Study" },
       { label: "Focus", value: "Hospitality UX" },
     ],
+  },
+  // Civilisation remains accessible in the work archive
+  {
+    slug: "civilisation",
+    number: "05",
+    title: "Civilisation",
+    headline: "Civilisation — Property & Development Advisory Dossier",
+    category: "Property / Advisory",
+    status: "Published Dossier",
+    isClientWork: true,
+    year: "2024",
+    discipline: "Design & Frontend Engineering",
+    client: "Civilisation Advisory Group",
+    description:
+      "A high-end property and development advisory experience structured as an editorial dossier, with complex information architecture spanning track record, capabilities, and studio philosophy.",
+    brief:
+      "Civilisation required an authoritative digital presence that moved beyond commercial real-estate tropes, positioning their development advisory team alongside institutional partners and discerning private clients.",
+    thinking:
+      "We established an austere editorial grid with deep aubergine ink, tactile beige surfaces, and precise typography. Rather than generic feature lists, the experience unfolds as a curated intelligence dossier with structured reading states.",
+    theBuild:
+      "Engineered with semantic HTML5, zero-layout-shift responsive typography, accessible keyboard navigation, and high-efficiency CSS layouts optimized for instant loading on mobile and desktop.",
+    outcome:
+      "An institutional-grade digital dossier that communicates high-value advisory capability with restraint and editorial authority.",
+    url: "https://civilisationn.netlify.app/",
+    image: "/images/portfolio/civilisation.webp",
+    tags: ["Advisory Dossier", "Editorial Grid", "Information Architecture"],
+    metrics: [
+      { label: "Format", value: "Editorial Dossier" },
+      { label: "Delivery", value: "Production Web" },
+      { label: "Scope", value: "Identity & Engineering" },
+    ],
+  },
+];
+
+export interface ReferenceProject {
+  slug: string;
+  name: string;
+  category: string;
+  type: "Featured Reference" | "Architectural Study";
+  sourceUrl: string;
+  image: string;
+  location?: string;
+  summary: string;
+  tags: string[];
+}
+
+// REFERENCE_PROJECTS order:
+// Featured: Studio Tilt → Dunowen House → Pentagram → Bechtel → Aman → Harper Construction → X+O
+// Other Work (client websites): III Studio → Architecture Discipline → Reir → OH Architecture → Studio Sarsh
+export const REFERENCE_PROJECTS: ReferenceProject[] = [
+  {
+    slug: "studio-tilt",
+    name: "Studio Tilt",
+    category: "Architecture & Interior Design",
+    type: "Featured Reference",
+    sourceUrl: "https://www.studiotilt.in/",
+    image: "/images/portfolio/studio-tilt.webp",
+    location: "Goa, India",
+    summary:
+      "Goa-based architecture and interior practice known for tropical modernism, contextual material palettes, and lush residential environments.",
+    tags: ["Tropical Modernism", "Contextual Architecture", "Interiors"],
+  },
+  {
+    slug: "dunowen-house-ref",
+    name: "Dunowen House",
+    category: "Luxury Hospitality / Heritage Retreat",
+    type: "Featured Reference",
+    sourceUrl: "https://dunowenhouse.ie/",
+    image: "/images/portfolio/dunowen-house.webp",
+    location: "West Cork, Ireland",
+    summary:
+      "An 18th-century heritage estate overlooking Sands Cove in West Cork, Ireland — an independent concept study in luxury hospitality editorial design.",
+    tags: ["Heritage Hospitality", "Concept Study", "Irish Estate"],
+  },
+  {
+    slug: "pentagram",
+    name: "Pentagram",
+    category: "Multidisciplinary Design & Identity",
+    type: "Featured Reference",
+    sourceUrl: "https://www.pentagram.com/work",
+    image: "/images/portfolio/pentagram.webp",
+    location: "London / New York / Austin / Berlin",
+    summary:
+      "The world's largest independently-owned design studio, setting benchmarks in brand architecture, editorial craft, and civic identity.",
+    tags: ["Brand Architecture", "Editorial Design", "Global Benchmark"],
+  },
+  {
+    slug: "bechtel",
+    name: "Bechtel",
+    category: "Global Engineering & Infrastructure",
+    type: "Featured Reference",
+    sourceUrl: "https://www.bechtel.com/",
+    image: "/images/portfolio/bechtel.webp",
+    location: "Reston, Virginia, USA",
+    summary:
+      "Enterprise engineering, construction, and project management firm delivering complex mega-infrastructure projects globally.",
+    tags: ["Mega-Infrastructure", "Enterprise Authority", "Engineering"],
+  },
+  {
+    slug: "aman",
+    name: "Aman",
+    category: "Luxury Hospitality & Sanctuaries",
+    type: "Featured Reference",
+    sourceUrl: "https://www.aman.com/destinations",
+    image: "/images/portfolio/aman.webp",
+    location: "Global Sanctuaries",
+    summary:
+      "Pinnacle luxury resort and hotel group renowned for architectural serenity, understated elegance, and intimate connection to setting.",
+    tags: ["Sanctuary Living", "Ultra-Luxury", "Architectural Serenity"],
+  },
+  {
+    slug: "harper-construction",
+    name: "Harper Construction",
+    category: "Commercial & Defense Contracting",
+    type: "Featured Reference",
+    sourceUrl: "https://harperconstruction.com/",
+    image: "/images/portfolio/harper-construction.webp",
+    location: "San Diego, California, USA",
+    summary:
+      "General contractor specializing in design-build federal, military aviation hangars, commercial, and institutional projects.",
+    tags: ["Design-Build", "Aviation & Defense", "Commercial Contracting"],
+  },
+  {
+    slug: "x-plus-o",
+    name: "X+O",
+    category: "Sustainable Retail & Interior Design",
+    type: "Featured Reference",
+    sourceUrl: "https://xpluso.co/",
+    image: "/images/portfolio/x-plus-o.webp",
+    location: "Sydney, Australia",
+    summary:
+      "Design studio crafting brand-transforming retail spaces, hospitality interiors, and commercial experiences with sustainable principles.",
+    tags: ["Retail Experience", "Hospitality Interiors", "Sustainable Design"],
+  },
+  // Other Work — client websites designed and built by ESSYUPPAY.AI
+  {
+    slug: "iii-studio",
+    name: "III Studio",
+    category: "Interior Design & Architecture",
+    type: "Architectural Study",
+    sourceUrl: "https://www.iiistudio.in/",
+    image: "/images/portfolio/iii-studio.webp",
+    location: "Hyderabad, India",
+    summary:
+      "Bespoke spatial design practice shaping intimate residential and commercial interiors guided by materiality and craftsmanship.",
+    tags: ["Residential Craft", "Spatial Materiality", "Bespoke Interiors"],
+  },
+  {
+    slug: "architecture-discipline",
+    name: "Architecture Discipline",
+    category: "Progressive Architecture & Urbanism",
+    type: "Architectural Study",
+    sourceUrl: "https://www.architecturediscipline.com/",
+    image: "/images/portfolio/architecture-discipline.webp",
+    location: "New Delhi, India",
+    summary:
+      "Multi-disciplinary architecture studio driven by rigorous inquiry, structural experimentation, and progressive urban design.",
+    tags: ["Structural Innovation", "Urban Architecture", "Research Studio"],
+  },
+  {
+    slug: "reir",
+    name: "Reir",
+    category: "Conservation Architecture & Heritage",
+    type: "Architectural Study",
+    sourceUrl: "https://www.reir.ie/",
+    image: "/images/portfolio/reir.webp",
+    location: "Dublin, Ireland",
+    summary:
+      "Irish architectural practice dedicated to historic building conservation, sensitive restoration, and contemporary intervention.",
+    tags: ["Historic Conservation", "Irish Heritage", "Sensitive Restoration"],
+  },
+  {
+    slug: "oh-architecture",
+    name: "OH Architecture",
+    category: "Residential & Commercial Architecture",
+    type: "Architectural Study",
+    sourceUrl: "https://www.oharchitecture.com.au/",
+    image: "/images/portfolio/oh-architecture.webp",
+    location: "Brisbane, Australia",
+    summary:
+      "Award-winning Australian architecture studio specializing in climate-responsive homes, clean geometric forms, and contextual craft.",
+    tags: ["Subtropical Design", "Residential Architecture", "Contextual Craft"],
+  },
+  {
+    slug: "studio-sarsh",
+    name: "Studio Sarsh",
+    category: "Interior Architecture & Custom Spaces",
+    type: "Architectural Study",
+    sourceUrl: "https://www.studiosarsh.com/",
+    image: "/images/portfolio/studio-sarsh.webp",
+    location: "Chennai, India",
+    summary:
+      "Interior architecture studio creating timeless, deeply personal residential environments reflecting bespoke client lifestyles.",
+    tags: ["Personal Living", "Timeless Aesthetics", "Interior Architecture"],
   },
 ];

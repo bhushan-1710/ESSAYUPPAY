@@ -2,12 +2,11 @@
 
 import * as React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { SELECTED_PROJECTS } from "@/data/projects";
+import { REFERENCE_PROJECTS } from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 
 if (typeof window !== "undefined") {
@@ -16,12 +15,12 @@ if (typeof window !== "undefined") {
 
 export function SelectedWorkScene() {
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const perspectCardRef = React.useRef<HTMLDivElement>(null);
-  const zerisCardRef = React.useRef<HTMLDivElement>(null);
+  const pentagramCardRef = React.useRef<HTMLDivElement>(null);
+  const xPlusOCardRef = React.useRef<HTMLDivElement>(null);
 
-  // Projects 02 (Perspect Hues) and 03 (Zeris Real Estate)
-  const perspect = SELECTED_PROJECTS.find((p) => p.slug === "perspect-hues");
-  const zeris = SELECTED_PROJECTS.find((p) => p.slug === "zeris-real-estate");
+  // Pentagram (7-col wide card) and X+O (5-col card) from REFERENCE_PROJECTS
+  const pentagram = REFERENCE_PROJECTS.find((p) => p.slug === "pentagram");
+  const xPlusO = REFERENCE_PROJECTS.find((p) => p.slug === "x-plus-o");
 
   useGSAP(
     () => {
@@ -31,7 +30,7 @@ export function SelectedWorkScene() {
       mm.add(
         "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
         () => {
-          gsap.to(perspectCardRef.current, {
+          gsap.to(pentagramCardRef.current, {
             yPercent: -6,
             ease: "none",
             scrollTrigger: {
@@ -42,7 +41,7 @@ export function SelectedWorkScene() {
             },
           });
 
-          gsap.to(zerisCardRef.current, {
+          gsap.to(xPlusOCardRef.current, {
             yPercent: -14, // Moves faster, creating physical spatial separation between cards
             ease: "none",
             scrollTrigger: {
@@ -72,7 +71,7 @@ export function SelectedWorkScene() {
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
               <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] font-semibold">
-                PORTFOLIO ARCHIVE / 02–03 · SPATIAL SYSTEMS
+                PORTFOLIO ARCHIVE / 02–03 · REFERENCE WORKS
               </span>
             </div>
             <h2
@@ -86,13 +85,13 @@ export function SelectedWorkScene() {
             </p>
           </div>
 
-          <Link
+          <a
             href="/work"
             className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--color-text)] hover:text-[var(--color-accent)] font-semibold transition-colors pb-1 border-b border-current"
           >
-            <span>Explore complete archive ({SELECTED_PROJECTS.length})</span>
+            <span>Explore complete archive ({REFERENCE_PROJECTS.length})</span>
             <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          </a>
         </div>
 
         {/* =========================================================================
@@ -100,182 +99,181 @@ export function SelectedWorkScene() {
            ========================================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* -------------------------------------------------------------
-              PROJECT 02: PERSPECT HUES (7 Cols) — Tactile Materiality Atelier
+              PENTAGRAM (7 Cols) — Global Design Benchmark
              ------------------------------------------------------------- */}
-          {perspect && (
+          {pentagram && (
             <div
-              ref={perspectCardRef}
+              ref={pentagramCardRef}
               className="lg:col-span-7 space-y-6 will-change-transform"
             >
-              <Link
-                href={`/work/${perspect.slug}`}
+              <a
+                href={pentagram.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group block relative rounded-[2px] border border-[var(--color-border)] bg-[var(--color-text)] shadow-xl overflow-hidden focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-                aria-label={`View case study: ${perspect.title}`}
+                aria-label={`Visit live website: ${pentagram.name}`}
               >
                 {/* Visual Media Framing (Aspect 16:10) */}
                 <div className="aspect-[16/10] w-full relative overflow-hidden">
                   <Image
-                    src={perspect.image}
-                    alt={`Preview of ${perspect.title}`}
+                    src={pentagram.image}
+                    alt={`Authentic screenshot of ${pentagram.name} website`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 58vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                   <div className="absolute top-4 left-4">
-                    <Badge variant="mint">{perspect.status}</Badge>
+                    <Badge variant="citron">{pentagram.type}</Badge>
                   </div>
 
-                  {/* Corner Atelier Tag */}
+                  {/* Corner Tag */}
                   <div className="absolute bottom-3 right-3 bg-[var(--color-text)]/90 text-white px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase backdrop-blur-xs">
-                    FIG. 02 · MATERIAL SWATCH SYSTEM
+                    FIG. 02 · GLOBAL DESIGN BENCHMARK
                   </div>
                 </div>
 
-                {/* Overlapping Material Swatches Ribbon */}
+                {/* Metadata Bar */}
                 <div className="bg-[var(--color-bg)] border-t border-[var(--color-border)] p-3 px-4 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-[var(--color-text-muted)]">
                   <span className="uppercase font-semibold text-[var(--color-text)]">
-                    {perspect.title} · {perspect.category}
+                    {pentagram.name} · {pentagram.category}
                   </span>
-                  <div className="flex items-center gap-2">
-                    <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#E5D7CE] border border-black/20" title="Limestone" />
-                    <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#2C1D27] border border-white/20" title="Aubergine Ink" />
-                    <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#8ABFA5] border border-black/20" title="Mineral Mint" />
-                    <span className="text-[10px] uppercase tracking-wider text-[var(--color-accent)] font-medium">
-                      Swatches Active
-                    </span>
-                  </div>
+                  <span className="text-[var(--color-accent)] font-semibold inline-flex items-center gap-1">
+                    Visit site <ArrowUpRight className="w-3 h-3" />
+                  </span>
                 </div>
-              </Link>
+              </a>
 
-              {/* Perspect Editorial Narrative */}
+              {/* Pentagram Editorial Narrative */}
               <div className="space-y-4 pt-2">
                 <div className="space-y-1">
                   <span className="font-mono text-xs uppercase tracking-wider text-[var(--color-text-muted)] block">
-                    {perspect.discipline} · {perspect.year}
+                    {pentagram.location}
                   </span>
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-text)]">
-                    {perspect.title}
+                    {pentagram.name}
                   </h3>
                   <p className="font-serif italic text-lg sm:text-xl text-[var(--color-text)]">
-                    {perspect.headline}
+                    {pentagram.category}
                   </p>
                 </div>
 
                 <p className="font-sans text-sm text-[var(--color-text-muted)] leading-relaxed max-w-xl">
-                  {perspect.description}
+                  {pentagram.summary}
                 </p>
 
-                {/* Verified Scope / Deliverables */}
-                <div className="grid grid-cols-3 gap-3 pt-3 border-t border-[var(--color-border-subtle)] font-mono text-xs">
-                  {perspect.metrics.map((m) => (
-                    <div key={m.label} className="space-y-0.5">
-                      <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)] block">
-                        {m.label}
-                      </span>
-                      <span className="text-xs font-semibold text-[var(--color-text)] block">
-                        {m.value}
-                      </span>
-                    </div>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
+                  {pentagram.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 rounded-[2px] bg-[rgba(44,29,39,0.05)] border border-[rgba(44,29,39,0.08)] text-[var(--color-text)]"
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
 
                 <div className="pt-2">
-                  <Link
-                    href={`/work/${perspect.slug}`}
+                  <a
+                    href={pentagram.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-1 group"
                   >
-                    <span>View project breakdown</span>
+                    <span>Visit live site</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
           )}
 
           {/* -------------------------------------------------------------
-              PROJECT 03: ZERIS REAL ESTATE (5 Cols) — Technical Platform Console
+              X+O (5 Cols) — Sustainable Interior Design Studio
              ------------------------------------------------------------- */}
-          {zeris && (
+          {xPlusO && (
             <div
-              ref={zerisCardRef}
+              ref={xPlusOCardRef}
               className="lg:col-span-5 space-y-6 lg:mt-12 will-change-transform"
             >
-              <Link
-                href={`/work/${zeris.slug}`}
+              <a
+                href={xPlusO.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group block relative rounded-[2px] border border-[var(--color-border)] bg-[var(--color-text)] shadow-xl overflow-hidden focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-                aria-label={`View case study: ${zeris.title}`}
+                aria-label={`Visit live website: ${xPlusO.name}`}
               >
                 {/* Technical Console Crop (Aspect 4:3) */}
                 <div className="aspect-[4/3] w-full relative overflow-hidden">
                   <Image
-                    src={zeris.image}
-                    alt={`Preview of ${zeris.title}`}
+                    src={xPlusO.image}
+                    alt={`Authentic screenshot of ${xPlusO.name} website`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 42vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                   <div className="absolute top-4 left-4">
-                    <Badge variant="citron">{zeris.status}</Badge>
+                    <Badge variant="citron">{xPlusO.type}</Badge>
                   </div>
 
-                  {/* Reactive Calculator Console Pill */}
+                  {/* Location Tag */}
                   <div className="absolute bottom-3 left-3 bg-[var(--color-text)]/90 text-[var(--color-accent-3)] px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase border border-[var(--color-accent-3)]/30 backdrop-blur-xs flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-pulse" />
-                    <span>ENGINE: REAL-TIME YIELD CALCULATOR</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent-2)]" />
+                    <span>{xPlusO.location}</span>
                   </div>
                 </div>
 
                 {/* Console Metadata Bar */}
                 <div className="bg-[var(--color-bg)] border-t border-[var(--color-border)] p-3 px-4 flex items-center justify-between font-mono text-[11px] text-[var(--color-text-muted)]">
                   <span className="uppercase font-semibold text-[var(--color-text)]">
-                    {zeris.title}
+                    {xPlusO.name}
                   </span>
-                  <span className="text-[var(--color-accent)] font-semibold">
-                    {zeris.year} · WEB ENGINE
+                  <span className="text-[var(--color-accent)] font-semibold inline-flex items-center gap-1">
+                    Visit site <ArrowUpRight className="w-3 h-3" />
                   </span>
                 </div>
-              </Link>
+              </a>
 
-              {/* Zeris Technical Narrative */}
+              {/* X+O Narrative */}
               <div className="space-y-4 pt-2">
                 <div className="space-y-1">
                   <span className="font-mono text-xs uppercase tracking-wider text-[var(--color-text-muted)] block">
-                    {zeris.discipline} · {zeris.year}
+                    {xPlusO.location}
                   </span>
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-text)]">
-                    {zeris.title}
+                    {xPlusO.name}
                   </h3>
                   <p className="font-serif italic text-lg sm:text-xl text-[var(--color-text)]">
-                    {zeris.headline}
+                    {xPlusO.category}
                   </p>
                 </div>
 
                 <p className="font-sans text-sm text-[var(--color-text-muted)] leading-relaxed">
-                  {zeris.description}
+                  {xPlusO.summary}
                 </p>
 
-                {/* Verified Scope / Deliverables */}
-                <div className="grid grid-cols-3 gap-3 pt-3 border-t border-[var(--color-border-subtle)] font-mono text-xs">
-                  {zeris.metrics.map((m) => (
-                    <div key={m.label} className="space-y-0.5">
-                      <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)] block">
-                        {m.label}
-                      </span>
-                      <span className="text-xs font-semibold text-[var(--color-text)] block">
-                        {m.value}
-                      </span>
-                    </div>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
+                  {xPlusO.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 rounded-[2px] bg-[rgba(44,29,39,0.05)] border border-[rgba(44,29,39,0.08)] text-[var(--color-text)]"
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
 
                 <div className="pt-2">
-                  <Link
-                    href={`/work/${zeris.slug}`}
+                  <a
+                    href={xPlusO.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-1 group"
                   >
-                    <span>Explore platform engine</span>
+                    <span>Visit live site</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

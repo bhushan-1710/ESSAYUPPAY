@@ -20,8 +20,8 @@ export function HeroToProjectScene() {
   const heroCopyRef = React.useRef<HTMLDivElement>(null);
   const mediaStageRef = React.useRef<HTMLDivElement>(null);
   const heroImageLayerRef = React.useRef<HTMLDivElement>(null);
-  const civilisationImageLayerRef = React.useRef<HTMLDivElement>(null);
-  const civilisationDossierRef = React.useRef<HTMLDivElement>(null);
+  const studioTiltImageLayerRef = React.useRef<HTMLDivElement>(null);
+  const studioTiltDossierRef = React.useRef<HTMLDivElement>(null);
 
   const p = FEATURED_PROJECT;
 
@@ -35,11 +35,11 @@ export function HeroToProjectScene() {
       mm.add(
         "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
         () => {
-          // 1. Initial State: Civilisation image is masked (clip-path wipe), text is offset
-          gsap.set(civilisationImageLayerRef.current, {
+          // 1. Initial State: Studio Tilt image is masked (clip-path wipe), text is offset
+          gsap.set(studioTiltImageLayerRef.current, {
             clipPath: "inset(0% 0% 0% 100%)",
           });
-          gsap.set(civilisationDossierRef.current, {
+          gsap.set(studioTiltDossierRef.current, {
             autoAlpha: 0,
             x: 60,
           });
@@ -130,9 +130,9 @@ export function HeroToProjectScene() {
 
           // Phase 2 (Progress 0.25 -> 0.60):
           // Architectural Curtain / Aperture Wipe inside the media frame:
-          // Unmasks the Civilisation Property Dossier with 100% opacity!
+          // Unmasks the Studio Tilt project image with 100% opacity!
           morphTl.to(
-            civilisationImageLayerRef.current,
+            studioTiltImageLayerRef.current,
             {
               clipPath: "inset(0% 0% 0% 0%)",
               duration: 0.35,
@@ -154,9 +154,9 @@ export function HeroToProjectScene() {
           );
 
           // Phase 3 (Progress 0.40 -> 0.70):
-          // Civilisation case study content glides into place on the right
+          // Studio Tilt project content glides into place on the right
           morphTl.to(
-            civilisationDossierRef.current,
+            studioTiltDossierRef.current,
             {
               autoAlpha: 1,
               x: 0,
@@ -176,10 +176,10 @@ export function HeroToProjectScene() {
       mm.add(
         "(max-width: 1023px), (prefers-reduced-motion: reduce)",
         () => {
-          gsap.set([civilisationDossierRef.current, heroCopyRef.current], {
+          gsap.set([studioTiltDossierRef.current, heroCopyRef.current], {
             clearProps: "all",
           });
-          gsap.set(civilisationImageLayerRef.current, {
+          gsap.set(studioTiltImageLayerRef.current, {
             clipPath: "none",
           });
         }
@@ -356,18 +356,18 @@ export function HeroToProjectScene() {
                       </div>
                     </div>
 
-                    {/* Visual 2: Civilisation Property Dossier (Unmasked via Clip-Path Wipe) */}
+                    {/* Visual 2: Studio Tilt Project (Unmasked via Clip-Path Wipe) */}
                     <div
-                      ref={civilisationImageLayerRef}
+                      ref={studioTiltImageLayerRef}
                       className="absolute inset-0 w-full h-full z-10 will-change-[clip-path]"
                     >
                       <Image
                         src={p.image}
-                        alt={`Property and development advisory dossier preview for ${p.title}`}
+                        alt={`Architecture and interior studio website preview for ${p.title}`}
                         fill
                         priority
                         sizes="(max-width: 1440px) 55vw, 750px"
-                        className="object-cover"
+                        className="object-cover object-top"
                       />
                       <div className="absolute top-3 left-3 bg-[var(--color-text)] text-white px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider rounded-[2px] border border-white/20">
                         SELECTED WORK / {p.number}
@@ -395,17 +395,17 @@ export function HeroToProjectScene() {
             </div>
 
             {/* -------------------------------------------------------------
-                RIGHT SIDE (PROGRESS 0.4+): CIVILISATION CASE STUDY DOSSIER
+                RIGHT SIDE (PROGRESS 0.4+): STUDIO TILT PROJECT DOSSIER
                 Glides into the vacant Right Column as the image expands Left
                ------------------------------------------------------------- */}
             <div
-              id="civilisation"
-              ref={civilisationDossierRef}
+              id="studio-tilt"
+              ref={studioTiltDossierRef}
               className="absolute right-0 w-[42%] pl-6 xl:pl-8 space-y-5 opacity-0 will-change-transform z-20 pointer-events-auto"
             >
               <div className="flex items-center justify-between pb-3 border-b border-[var(--color-border-subtle)] font-mono text-xs">
                 <span className="text-[var(--color-accent)] font-semibold uppercase tracking-wider">
-                  FEATURED DOSSIER
+                  SELECTED WORK
                 </span>
                 <Badge variant="default">{p.status}</Badge>
               </div>
@@ -560,7 +560,7 @@ export function HeroToProjectScene() {
                 alt={p.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 800px"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <div className="p-3 bg-[var(--color-bg)] border-t border-[var(--color-border)] flex items-center justify-between font-mono text-xs">

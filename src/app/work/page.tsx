@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { SELECTED_PROJECTS } from "@/data/projects";
+import { SELECTED_PROJECTS, REFERENCE_PROJECTS } from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -156,6 +156,107 @@ export default function WorkPage() {
               </article>
             );
           })}
+        </div>
+      </section>
+
+      {/* Curated Reference & Architectural Benchmark Archive */}
+      <section className="py-16 sm:py-24 border-b border-[var(--color-border-subtle)] bg-[rgba(44,29,39,0.015)]">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 space-y-12">
+          <div className="space-y-4 max-w-3xl">
+            <div className="flex items-center gap-3 font-mono text-xs text-[var(--color-text-muted)]">
+              <span className="uppercase tracking-widest text-[var(--color-accent)] font-semibold">
+                ARCHIVE / BENCHMARKS
+              </span>
+              <span>/</span>
+              <span className="uppercase tracking-wider">
+                {REFERENCE_PROJECTS.length} CURATED REFERENCES
+              </span>
+            </div>
+
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--color-text)]">
+              Reference Studies & Spatial Benchmarks
+            </h2>
+
+            <p className="font-sans text-base text-[var(--color-text-muted)] leading-relaxed">
+              A catalog of external benchmarks and architectural practices studied for typographic precision, spatial art direction, and structural clarity. In accordance with strict attribution standards, these sites represent external reference works owned by their respective studios, catalogued with direct visual captures from their live domains.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {REFERENCE_PROJECTS.map((ref) => (
+              <article
+                key={ref.slug}
+                className="group flex flex-col rounded-[2px] overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg)] shadow-xs transition-shadow duration-300 hover:shadow-md"
+              >
+                {/* Visual Capture Card Container */}
+                <a
+                  href={ref.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative aspect-[16/10] w-full overflow-hidden bg-[var(--color-text)] border-b border-[var(--color-border)] focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+                  aria-label={`Visit live website for ${ref.name}`}
+                >
+                  <Image
+                    src={ref.image}
+                    alt={`Authentic live screenshot of ${ref.name} website`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
+                    <Badge variant={ref.type === "Featured Reference" ? "citron" : "mint"}>
+                      {ref.type}
+                    </Badge>
+                  </div>
+                  {ref.location && (
+                    <div className="absolute bottom-2.5 right-2.5 bg-[var(--color-text)]/90 text-white px-2 py-0.5 rounded-[1px] font-mono text-[10px] tracking-wider uppercase backdrop-blur-xs">
+                      {ref.location}
+                    </div>
+                  )}
+                </a>
+
+                {/* Content & Metadata */}
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-mono text-[11px] text-[var(--color-accent)] font-semibold uppercase tracking-wider">
+                        {ref.category}
+                      </span>
+                    </div>
+
+                    <h3 className="font-display text-xl font-bold tracking-tight text-[var(--color-text)]">
+                      <a
+                        href={ref.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-[var(--color-accent)] transition-colors inline-flex items-center gap-1.5"
+                      >
+                        <span>{ref.name}</span>
+                        <ArrowUpRight className="w-4 h-4 text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)] transition-colors" />
+                      </a>
+                    </h3>
+
+                    <p className="font-sans text-xs text-[var(--color-text-muted)] line-clamp-3 leading-relaxed">
+                      {ref.summary}
+                    </p>
+                  </div>
+
+                  <div className="pt-2 border-t border-[var(--color-border-subtle)] flex items-center justify-between font-mono text-[11px]">
+                    <span className="text-[var(--color-text-muted)]">Live Domain</span>
+                    <a
+                      href={ref.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-accent)] hover:underline inline-flex items-center gap-1 font-medium"
+                    >
+                      <span>Visit site</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
