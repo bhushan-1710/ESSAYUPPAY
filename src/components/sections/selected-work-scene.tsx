@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -85,13 +86,13 @@ export function SelectedWorkScene() {
             </p>
           </div>
 
-          <a
+          <Link
             href="/work"
             className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--color-text)] hover:text-[var(--color-accent)] font-semibold transition-colors pb-1 border-b border-current"
           >
             <span>Explore complete archive ({REFERENCE_PROJECTS.length})</span>
             <ArrowUpRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
 
         {/* =========================================================================

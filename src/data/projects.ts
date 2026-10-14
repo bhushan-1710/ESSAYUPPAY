@@ -178,51 +178,61 @@ export const SELECTED_PROJECTS: Project[] = [
   },
 ];
 
-export interface ReferenceProject {
+export interface PortfolioProject {
   slug: string;
   name: string;
   category: string;
-  type: "Featured Reference" | "Architectural Study";
+  type: "Featured Work" | "Client Project" | "Independent Concept Study" | "Archived Dossier";
   sourceUrl: string;
   image: string;
   location?: string;
   summary: string;
   tags: string[];
+  caseStudySlug?: string;
 }
 
-// REFERENCE_PROJECTS order:
-// Featured: Studio Tilt → Dunowen House → Pentagram → Bechtel → Aman → Harper Construction → X+O
-// Other Work (client websites): III Studio → Architecture Discipline → Reir → OH Architecture → Studio Sarsh
-export const REFERENCE_PROJECTS: ReferenceProject[] = [
+export type ReferenceProject = PortfolioProject;
+
+// The 7 Featured Projects in exact specified order:
+// 1. Studio Tilt
+// 2. Dunowen House
+// 3. Pentagram
+// 4. Bechtel
+// 5. Aman
+// 6. Harper Construction
+// 7. X+O
+export const FEATURED_PROJECTS: PortfolioProject[] = [
   {
     slug: "studio-tilt",
     name: "Studio Tilt",
     category: "Architecture & Interior Design",
-    type: "Featured Reference",
+    type: "Featured Work",
     sourceUrl: "https://www.studiotilt.in/",
     image: "/images/portfolio/studio-tilt.webp",
     location: "Goa, India",
+    caseStudySlug: "studio-tilt",
     summary:
-      "Goa-based architecture and interior practice known for tropical modernism, contextual material palettes, and lush residential environments.",
+      "A studio presence for a Goa-based architecture and interior practice known for tropical modernism, contextual material palettes, and lush residential environments.",
     tags: ["Tropical Modernism", "Contextual Architecture", "Interiors"],
   },
   {
-    slug: "dunowen-house-ref",
+    slug: "dunowen-house",
     name: "Dunowen House",
     category: "Luxury Hospitality / Heritage Retreat",
-    type: "Featured Reference",
+    type: "Independent Concept Study",
     sourceUrl: "https://dunowenhouse.ie/",
     image: "/images/portfolio/dunowen-house.webp",
     location: "West Cork, Ireland",
+    caseStudySlug: "dunowen-house",
     summary:
-      "An 18th-century heritage estate overlooking Sands Cove in West Cork, Ireland — an independent concept study in luxury hospitality editorial design.",
+      "An 18th-century heritage estate overlooking Sands Cove in West Cork, Ireland — an independent design study in luxury hospitality storytelling and booking UX.",
     tags: ["Heritage Hospitality", "Concept Study", "Irish Estate"],
   },
   {
     slug: "pentagram",
     name: "Pentagram",
     category: "Multidisciplinary Design & Identity",
-    type: "Featured Reference",
+    type: "Featured Work",
     sourceUrl: "https://www.pentagram.com/work",
     image: "/images/portfolio/pentagram.webp",
     location: "London / New York / Austin / Berlin",
@@ -234,19 +244,19 @@ export const REFERENCE_PROJECTS: ReferenceProject[] = [
     slug: "bechtel",
     name: "Bechtel",
     category: "Global Engineering & Infrastructure",
-    type: "Featured Reference",
+    type: "Featured Work",
     sourceUrl: "https://www.bechtel.com/",
     image: "/images/portfolio/bechtel.webp",
     location: "Reston, Virginia, USA",
     summary:
-      "Enterprise engineering, construction, and project management firm delivering complex mega-infrastructure projects globally.",
+      "Enterprise engineering, construction, and project management delivering complex mega-infrastructure projects globally.",
     tags: ["Mega-Infrastructure", "Enterprise Authority", "Engineering"],
   },
   {
     slug: "aman",
     name: "Aman",
     category: "Luxury Hospitality & Sanctuaries",
-    type: "Featured Reference",
+    type: "Featured Work",
     sourceUrl: "https://www.aman.com/destinations",
     image: "/images/portfolio/aman.webp",
     location: "Global Sanctuaries",
@@ -258,7 +268,7 @@ export const REFERENCE_PROJECTS: ReferenceProject[] = [
     slug: "harper-construction",
     name: "Harper Construction",
     category: "Commercial & Defense Contracting",
-    type: "Featured Reference",
+    type: "Featured Work",
     sourceUrl: "https://harperconstruction.com/",
     image: "/images/portfolio/harper-construction.webp",
     location: "San Diego, California, USA",
@@ -270,7 +280,7 @@ export const REFERENCE_PROJECTS: ReferenceProject[] = [
     slug: "x-plus-o",
     name: "X+O",
     category: "Sustainable Retail & Interior Design",
-    type: "Featured Reference",
+    type: "Featured Work",
     sourceUrl: "https://xpluso.co/",
     image: "/images/portfolio/x-plus-o.webp",
     location: "Sydney, Australia",
@@ -278,12 +288,20 @@ export const REFERENCE_PROJECTS: ReferenceProject[] = [
       "Design studio crafting brand-transforming retail spaces, hospitality interiors, and commercial experiences with sustainable principles.",
     tags: ["Retail Experience", "Hospitality Interiors", "Sustainable Design"],
   },
-  // Other Work — client websites designed and built by ESSYUPPAY.AI
+];
+
+// The 5 More Work Projects in exact specified order:
+// 1. III Studio — https://www.iiistudio.in/
+// 2. Architecture Discipline — https://www.architecturediscipline.com/
+// 3. REIR Studio — https://www.reir.ie/
+// 4. OH Architecture — https://www.oharchitecture.com.au/
+// 5. Studio Sarsh — https://www.studiosarsh.com/
+export const MORE_WORK_PROJECTS: PortfolioProject[] = [
   {
     slug: "iii-studio",
     name: "III Studio",
     category: "Interior Design & Architecture",
-    type: "Architectural Study",
+    type: "Client Project",
     sourceUrl: "https://www.iiistudio.in/",
     image: "/images/portfolio/iii-studio.webp",
     location: "Hyderabad, India",
@@ -295,7 +313,7 @@ export const REFERENCE_PROJECTS: ReferenceProject[] = [
     slug: "architecture-discipline",
     name: "Architecture Discipline",
     category: "Progressive Architecture & Urbanism",
-    type: "Architectural Study",
+    type: "Client Project",
     sourceUrl: "https://www.architecturediscipline.com/",
     image: "/images/portfolio/architecture-discipline.webp",
     location: "New Delhi, India",
@@ -305,9 +323,9 @@ export const REFERENCE_PROJECTS: ReferenceProject[] = [
   },
   {
     slug: "reir",
-    name: "Reir",
+    name: "REIR Studio",
     category: "Conservation Architecture & Heritage",
-    type: "Architectural Study",
+    type: "Client Project",
     sourceUrl: "https://www.reir.ie/",
     image: "/images/portfolio/reir.webp",
     location: "Dublin, Ireland",
@@ -319,7 +337,7 @@ export const REFERENCE_PROJECTS: ReferenceProject[] = [
     slug: "oh-architecture",
     name: "OH Architecture",
     category: "Residential & Commercial Architecture",
-    type: "Architectural Study",
+    type: "Client Project",
     sourceUrl: "https://www.oharchitecture.com.au/",
     image: "/images/portfolio/oh-architecture.webp",
     location: "Brisbane, Australia",
@@ -331,7 +349,7 @@ export const REFERENCE_PROJECTS: ReferenceProject[] = [
     slug: "studio-sarsh",
     name: "Studio Sarsh",
     category: "Interior Architecture & Custom Spaces",
-    type: "Architectural Study",
+    type: "Client Project",
     sourceUrl: "https://www.studiosarsh.com/",
     image: "/images/portfolio/studio-sarsh.webp",
     location: "Chennai, India",
@@ -339,4 +357,50 @@ export const REFERENCE_PROJECTS: ReferenceProject[] = [
       "Interior architecture studio creating timeless, deeply personal residential environments reflecting bespoke client lifestyles.",
     tags: ["Personal Living", "Timeless Aesthetics", "Interior Architecture"],
   },
+];
+
+// Archived dossiers: preserved routes and case-study dossiers from earlier portfolio cycles
+export const ARCHIVED_PROJECTS: PortfolioProject[] = [
+  {
+    slug: "perspect-hues",
+    name: "Perspect Hues",
+    category: "Interior Design / Spatial Studio",
+    type: "Archived Dossier",
+    sourceUrl: "https://perspect-hues.netlify.app/",
+    image: "/images/portfolio/perspect-hues.webp",
+    caseStudySlug: "perspect-hues",
+    summary:
+      "A restrained editorial website for an interior architecture studio, built around spatial materiality, warm stone tones, dynamic swatches, and calm visual rhythm.",
+    tags: ["Spatial Design", "Materiality Swatches", "Studio Identity"],
+  },
+  {
+    slug: "zeris-real-estate",
+    name: "Zeris Real Estate",
+    category: "Real Estate / Digital Platform",
+    type: "Archived Dossier",
+    sourceUrl: "https://zeris-real-estate.netlify.app/",
+    image: "/images/portfolio/zeris-real-estate.webp",
+    caseStudySlug: "zeris-real-estate",
+    summary:
+      "A modern property discovery platform combining curated residential listings, neighbourhood exploration, direct WhatsApp interactions, and a real-time yield engine.",
+    tags: ["Property Platform", "Yield Calculator", "Interactive Tooling"],
+  },
+  {
+    slug: "civilisation",
+    name: "Civilisation",
+    category: "Property / Advisory",
+    type: "Archived Dossier",
+    sourceUrl: "https://civilisationn.netlify.app/",
+    image: "/images/portfolio/civilisation.webp",
+    caseStudySlug: "civilisation",
+    summary:
+      "A high-end property and development advisory experience structured as an editorial dossier, with complex information architecture spanning track record, capabilities, and studio philosophy.",
+    tags: ["Advisory Dossier", "Editorial Grid", "Information Architecture"],
+  },
+];
+
+// Preserved reference array for backwards compatibility across existing components
+export const REFERENCE_PROJECTS: PortfolioProject[] = [
+  ...FEATURED_PROJECTS,
+  ...MORE_WORK_PROJECTS,
 ];
