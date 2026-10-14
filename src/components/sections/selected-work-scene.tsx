@@ -72,7 +72,7 @@ export function SelectedWorkScene() {
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
               <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] font-semibold">
-                PORTFOLIO ARCHIVE / 02–03 · REFERENCE WORKS
+                PORTFOLIO SELECTION · SELECTED WORKS
               </span>
             </div>
             <h2
@@ -124,12 +124,12 @@ export function SelectedWorkScene() {
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                   <div className="absolute top-4 left-4">
-                    <Badge variant="citron">{pentagram.type}</Badge>
+                    <Badge variant="default">{pentagram.type}</Badge>
                   </div>
 
                   {/* Corner Tag */}
                   <div className="absolute bottom-3 right-3 bg-[var(--color-text)]/90 text-white px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase backdrop-blur-xs">
-                    FIG. 02 · GLOBAL DESIGN BENCHMARK
+                    FIG. 02 · IDENTITY &amp; DESIGN
                   </div>
                 </div>
 
@@ -139,7 +139,7 @@ export function SelectedWorkScene() {
                     {pentagram.name} · {pentagram.category}
                   </span>
                   <span className="text-[var(--color-accent)] font-semibold inline-flex items-center gap-1">
-                    Visit site <ArrowUpRight className="w-3 h-3" />
+                    Visit website <ArrowUpRight className="w-3 h-3" />
                   </span>
                 </div>
               </a>
@@ -179,9 +179,10 @@ export function SelectedWorkScene() {
                     href={pentagram.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-1 group"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-1 group focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+                    aria-label={`Visit live website: ${pentagram.name}`}
                   >
-                    <span>Visit live site</span>
+                    <span>Visit website</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 </div>
@@ -214,7 +215,7 @@ export function SelectedWorkScene() {
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                   <div className="absolute top-4 left-4">
-                    <Badge variant="citron">{xPlusO.type}</Badge>
+                    <Badge variant="default">{xPlusO.type}</Badge>
                   </div>
 
                   {/* Location Tag */}
@@ -230,7 +231,7 @@ export function SelectedWorkScene() {
                     {xPlusO.name}
                   </span>
                   <span className="text-[var(--color-accent)] font-semibold inline-flex items-center gap-1">
-                    Visit site <ArrowUpRight className="w-3 h-3" />
+                    Visit website <ArrowUpRight className="w-3 h-3" />
                   </span>
                 </div>
               </a>
@@ -270,9 +271,10 @@ export function SelectedWorkScene() {
                     href={xPlusO.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-1 group"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-1 group focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+                    aria-label={`Visit live website: ${xPlusO.name}`}
                   >
-                    <span>Visit live site</span>
+                    <span>Visit website</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 </div>

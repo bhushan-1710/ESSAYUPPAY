@@ -440,25 +440,49 @@ export function HeroToProjectScene() {
                 ))}
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-5">
                 <Link
                   href={`/work/${p.slug}`}
-                  className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-2 group"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-2 group focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
                 >
                   <span>Read complete dossier</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
+
+                {p.url && (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-text)] hover:text-[var(--color-accent)] font-semibold py-2 transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+                    aria-label={`Visit live website for ${p.title}`}
+                  >
+                    <span>Visit website</span>
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                )}
               </div>
             </div>
           </div>
 
-          {/* Bottom Dossier Navigation Indicator */}
+          {/* Bottom Dossier Status Bar */}
           <div className="flex items-center justify-between pt-4 border-t border-[var(--color-border-subtle)] font-mono text-xs text-[var(--color-text-muted)]">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-ping" />
-              <span>SCROLL TO ADVANCE SCENE 01 → 02</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+              <span className="uppercase tracking-wider">PROJECT DOSSIER · {p.title}</span>
             </div>
-            <span>SEC. 01 / CINEMATIC EXPANSION</span>
+            {p.url && (
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--color-accent)] hover:underline inline-flex items-center gap-1 font-medium focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+                aria-label={`Visit live website for ${p.title}`}
+              >
+                <span>Visit website</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -593,6 +617,28 @@ export function HeroToProjectScene() {
                   </span>
                 </div>
               ))}
+            </div>
+
+            <div className="pt-3 flex flex-wrap items-center gap-4">
+              <Link
+                href={`/work/${p.slug}`}
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] font-semibold py-1.5 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+              >
+                <span>Read complete dossier</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+              {p.url && (
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-text)] hover:text-[var(--color-accent)] font-semibold py-1.5 transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+                  aria-label={`Visit live website for ${p.title}`}
+                >
+                  <span>Visit website</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              )}
             </div>
           </div>
         </div>

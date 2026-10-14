@@ -135,7 +135,7 @@ export function Capabilities() {
             <div className="flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
               <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-accent)] font-semibold">
-                SCENE 04 / CAPABILITIES INDEX · DISCIPLINE SEQUENCE
+                CAPABILITIES INDEX · DISCIPLINE SEQUENCE
               </span>
             </div>
             <h2

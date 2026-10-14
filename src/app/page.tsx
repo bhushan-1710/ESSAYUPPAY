@@ -7,10 +7,10 @@ import { ClosingCta } from "@/components/sections/closing-cta";
 export default function Home() {
   return (
     <div className="w-full">
-      {/* 01 / Choreographed Hero & Pinned Morph Scene into Civilisation */}
+      {/* 01 / Choreographed Hero & Pinned Morph Scene into Studio Tilt */}
       <HeroToProjectScene />
 
-      {/* 02 / Asymmetric Selected Work Parallax Exhibition (Perspect Hues & Zeris) */}
+      {/* 02 / Asymmetric Selected Work Parallax Exhibition (Pentagram & X+O) */}
       <SelectedWorkScene />
 
       {/* 03 / Archival Monograph Showcase: Dunowen House Independent Concept */}

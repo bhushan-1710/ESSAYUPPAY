@@ -39,7 +39,7 @@ export function ClosingCta() {
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-[var(--color-accent-3)] animate-pulse" />
             <span className="uppercase tracking-widest text-[var(--color-accent-3)] font-semibold text-[11px]">
-              SCENE 05 / FINAL ACT · NEW COMMISSIONS &amp; ENQUIRIES
+              NEW COMMISSIONS &amp; ENQUIRIES · STUDIO CONTACT
             </span>
           </div>
 

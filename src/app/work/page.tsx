@@ -117,9 +117,10 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
             href={project.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--color-accent)] hover:underline inline-flex items-center gap-1 font-medium"
+            className="text-[var(--color-accent)] hover:underline inline-flex items-center gap-1 font-medium focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+            aria-label={`Visit live website for ${project.name}`}
           >
-            <span>Visit site</span>
+            <span>Visit website</span>
             <ArrowUpRight className="w-3 h-3" />
           </a>
         </div>

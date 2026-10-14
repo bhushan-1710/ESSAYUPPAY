@@ -23,7 +23,7 @@ export function ConceptStudyScene() {
         <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[var(--color-border-subtle)] font-mono text-xs">
           <div className="flex items-center gap-3 text-[var(--color-text-muted)]">
             <span className="text-[var(--color-accent)] font-semibold uppercase tracking-wider">
-              ARCHIVE / 04 · INDEPENDENT STUDY
+              INDEPENDENT STUDY · ARCHIVE
             </span>
             <span>·</span>
             <span className="uppercase tracking-widest text-[11px]">
@@ -85,25 +85,39 @@ export function ConceptStudyScene() {
               ))}
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-wrap items-center gap-5">
               <Link
                 href={`/work/${dunowen.slug}`}
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-2 group"
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-accent)] hover:text-[#9E251E] font-semibold py-2 group focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
               >
                 <span>Inspect architectural concept dossier</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
+              {dunowen.url && (
+                <a
+                  href={dunowen.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-text)] hover:text-[var(--color-accent)] font-semibold py-2 transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+                  aria-label={`Visit live website for ${dunowen.title}`}
+                >
+                  <span>Visit website</span>
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              )}
             </div>
           </div>
 
           {/* Right Column: Heritage Archival Photographic Passe-Partout (Cols 7-12) */}
           <div className="lg:col-span-6">
-            <Link
-              href={`/work/${dunowen.slug}`}
-              className="group block relative rounded-[2px] border border-[var(--color-border)] bg-[var(--color-bg)] p-3 sm:p-4 shadow-xl focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-              aria-label={`Inspect ${dunowen.title} concept`}
+            <div
+              className="group block relative rounded-[2px] border border-[var(--color-border)] bg-[var(--color-bg)] p-3 sm:p-4 shadow-xl"
             >
-              <div className="aspect-[16/10] sm:aspect-[4/3] w-full relative rounded-[1px] overflow-hidden bg-[var(--color-text)] border border-[rgba(118,99,109,0.3)]">
+              <Link
+                href={`/work/${dunowen.slug}`}
+                className="block relative aspect-[16/10] sm:aspect-[4/3] w-full rounded-[1px] overflow-hidden bg-[var(--color-text)] border border-[rgba(118,99,109,0.3)] focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+                aria-label={`Inspect ${dunowen.title} concept`}
+              >
                 <Image
                   src={dunowen.image}
                   alt="Dunowen House concept study editorial still life"
@@ -116,18 +130,36 @@ export function ConceptStudyScene() {
                 <div className="absolute top-3 right-3 bg-[var(--color-bg)]/95 text-[var(--color-text)] border border-[var(--color-border)] px-2.5 py-1 font-mono text-[10px] tracking-wider uppercase shadow-xs">
                   PROVENANCE · 1771
                 </div>
-              </div>
+              </Link>
 
               {/* Passe-Partout Bottom Ticket Bar */}
               <div className="mt-3 px-1 pt-2 border-t border-[var(--color-border-subtle)] flex items-center justify-between font-mono text-[11px] text-[var(--color-text-muted)]">
                 <span className="uppercase font-medium text-[var(--color-text)]">
                   DUNOWEN ESTATE · WEST CORK
                 </span>
-                <span className="text-[var(--color-accent)] font-semibold inline-flex items-center gap-1">
-                  View concept dossier <ArrowUpRight className="w-3.5 h-3.5" />
-                </span>
+                <div className="flex items-center gap-4">
+                  <Link
+                    href={`/work/${dunowen.slug}`}
+                    className="text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors font-medium inline-flex items-center gap-1 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+                  >
+                    <span>Read dossier</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                  {dunowen.url && (
+                    <a
+                      href={dunowen.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-accent)] hover:underline inline-flex items-center gap-1 font-medium focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-[2px]"
+                      aria-label={`Visit live website for ${dunowen.title}`}
+                    >
+                      <span>Visit website</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       </div>
